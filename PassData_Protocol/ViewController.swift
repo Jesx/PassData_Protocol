@@ -10,11 +10,25 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
+    
+    @IBAction func nextPage(_ sender: UIButton) {
+        let secondVC = storyboard?.instantiateViewController(withIdentifier: "secondVC") as! SecondViewController
+        secondVC.bgDelegate = self
+        // Can't combine with performSegue
+        present(secondVC, animated: true, completion: nil)
+    }
+    
+}
 
-
+extension ViewController: BackgroundColorDelegate {
+    func colorSelected(_ color: UIColor) {
+        view.backgroundColor = color
+    }
+    
 }
 
