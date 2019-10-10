@@ -15,25 +15,25 @@ protocol BackgroundColorDelegate {
 class SecondViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     enum ColorSet: Int, CaseIterable {
-        case Red = 0, Green, Orange, Blue, Grey
+        case Grey = 0, Red, Green, Orange, Blue
 
         var description: String {
             switch self {
+            case .Grey: return "Grey"
             case .Red: return "Red"
             case .Green: return "Green"
             case .Orange: return "Orange"
             case .Blue: return "Blue"
-            case .Grey: return "Grey"
             }
         }
         
         var color: UIColor {
             switch self {
+            case .Grey: return UIColor.gray
             case .Red: return UIColor.red
             case .Green: return UIColor.green
             case .Orange: return UIColor.orange
             case .Blue: return UIColor.blue
-            case .Grey: return UIColor.gray
             }
         }
     }
@@ -52,6 +52,13 @@ class SecondViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
     }
     
+    @IBAction func back(_ sender: UIButton) {
+        
+        bgDelegate?.colorSelected(backgroundColor)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: PickView Setting
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -68,10 +75,5 @@ class SecondViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         backgroundColor = ColorSet.init(rawValue: row)!.color
     }
-    
-    @IBAction func back(_ sender: UIButton) {
-        
-        bgDelegate?.colorSelected(backgroundColor)
-        dismiss(animated: true, completion: nil)
-    }
+
 }

@@ -29,6 +29,5 @@ extension ViewController: BackgroundColorDelegate {
     func colorSelected(_ color: UIColor) {
         view.backgroundColor = color
     }
-    
 }
 
