@@ -40,7 +40,7 @@ class SecondViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     var backgroundColor = UIColor.white
 
-    var bgDelegate: BackgroundColorDelegate?
+    var delegate: BackgroundColorDelegate?
 
     @IBOutlet weak var pickerView: UIPickerView!
     
@@ -54,7 +54,7 @@ class SecondViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     @IBAction func back(_ sender: UIButton) {
         
-        bgDelegate?.colorSelected(backgroundColor)
+        delegate?.colorSelected(backgroundColor)
         dismiss(animated: true, completion: nil)
     }
     

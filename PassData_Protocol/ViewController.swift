@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     
     @IBAction func nextPage(_ sender: UIButton) {
         let secondVC = storyboard?.instantiateViewController(withIdentifier: "secondVC") as! SecondViewController
-        secondVC.bgDelegate = self
+        secondVC.delegate = self
         // Can't combine with performSegue
         present(secondVC, animated: true, completion: nil)
     }
