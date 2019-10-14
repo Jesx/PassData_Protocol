@@ -58,7 +58,7 @@ class SecondViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         dismiss(animated: true, completion: nil)
     }
     
-    // MARK: PickView Setting
+    // MARK: - PickView Setting
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
